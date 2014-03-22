@@ -13,7 +13,7 @@ module.exports = function (grunt) {
     banner: '/*!\n' +
             ' * Bootstrap v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
             ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
+            ' * Licensed under <%= pkg.licenses ? _.pluck(pkg.licenses, "type") : pkg.license.type %> (<%= pkg.licenses ? _.pluck(pkg.licenses, "url") : pkg.license.url %>)\n' +
             ' */\n',
 
     clean: {

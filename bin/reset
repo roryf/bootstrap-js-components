@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd bootstrap;
+git checkout master;
