@@ -2,7 +2,7 @@
 
 The Bootstrap JavaScript components are great for non-Bootstrap projects. They do one thing well, are well written, and self-contained. However, you may not want to include the whole js build from Bootstrap just for one or two plugins, let alone the entire Bootstrap repo in your `bower_components`. Keeping individual files up to date manually and including minified version can be a chore.
 
-bootstrap-js-components is a bower package that contains just the JavaScript components, in individual files both in source form and minified with source maps. It provides every bower version since `2.0.3`.
+bootstrap-js-components is a bower package that contains just the JavaScript components, in individual files, both in source form and minified with source maps. It provides every bootstrap version since `2.0.3`.
 
 # Installation
 
