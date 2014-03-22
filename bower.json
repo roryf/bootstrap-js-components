@@ -18,6 +18,8 @@
     "bootstrap",
     "bin",
     "Gruntfile.js",
-    "package.json"
+    "package.json",
+    ".gitignore",
+    ".gitmodules"
   ]
 }
