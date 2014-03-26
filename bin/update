@@ -26,7 +26,7 @@ async.map([bootstrap, local], function(repo, callback) {
     tagsToUpdate = [];
 
   bootstrapTags.forEach(function(tag) {
-    if (!tag || !semver.valid(tag) || semver.lt(tag, '2.0.3')) {
+    if (!tag || !semver.valid(tag) || semver.lt(tag, '2.2.0')) {
       return;
     }
 
@@ -40,7 +40,8 @@ async.map([bootstrap, local], function(repo, callback) {
   async.mapSeries(tagsToUpdate, function(tag, callback) {
     console.log('>> Building ' + tag);
     bootstrap.checkout(tag, function(err) {
-      bower.version = JSON.parse(fs.readFileSync(__dirname + '/../bootstrap/bower.json')).version;
+      var bootstrapBowerFile = fs.existsSync(__dirname + '/../bootstrap/bower.json') ? __dirname + '/../bootstrap/bower.json' : __dirname + '/../bootstrap/component.json';
+      bower.version = JSON.parse(fs.readFileSync(bootstrapBowerFile)).version;
       fs.writeFileSync(__dirname + '/../bower.json', JSON.stringify(bower, null, '  '));
 
       exec('grunt', function(error, stdout, stderr) {
