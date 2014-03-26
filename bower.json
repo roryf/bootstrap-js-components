@@ -1,14 +1,8 @@
 {
   "name": "bootstrap-js-components",
-  "version": "3.1.1",
-  "homepage": "https://github.com/roryf/bootstrap-js-components",
-  "authors": [
-    "Rory Fitzpatrick <rory@fitzpatrick.fm>"
-  ],
+  "homepage": "http://getbootstrap.com",
   "description": "Just the Boostrap js components",
-  "moduleType": [
-    "globals"
-  ],
+  "version": "3.1.0",
   "keywords": [
     "bootstrap"
   ],

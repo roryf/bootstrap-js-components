@@ -3,7 +3,8 @@
 var git = require('simple-git')
   async = require('async'),
   exec = require('child_process').exec,
-  semver = require('semver');
+  semver = require('semver'),
+  fs = require('fs');
 
 var bootstrap = git(__dirname + '/../bootstrap');
 var local = git(__dirname + '/..');
@@ -34,13 +35,19 @@ async.map([bootstrap, local], function(repo, callback) {
     }
   });
 
+  var bower = JSON.parse(fs.readFileSync(__dirname + '/../bower.json'));
+
   async.mapSeries(tagsToUpdate, function(tag, callback) {
     console.log('>> Building ' + tag);
     bootstrap.checkout(tag, function(err) {
+      bower.version = JSON.parse(fs.readFileSync(__dirname + '/../bootstrap/bower.json')).version;
+      fs.writeFileSync(__dirname + '/../bower.json', JSON.stringify(bower, null, '  '));
+
       exec('grunt', function(error, stdout, stderr) {
         local
           .checkoutBranch(tag, 'master')
           ._run('git add dist/. -f', function() {})
+          .add('bower.json')
           .commit(tag)
           ._run('git tag -a ' + tag + ' -m "' + tag + '"', function() {})
           .checkout('master')
