@@ -1,4 +1,4 @@
-# bootstrap-js-components
+# bootstrap-js-components [![Bower version](https://badge.fury.io/bo/bootstrap-js-components.svg)](http://badge.fury.io/bo/bootstrap-js-components)
 
 The Bootstrap JavaScript components are great for non-Bootstrap projects. They do one thing well, are well written, and self-contained. However, you may not want to include the whole js build from Bootstrap just for one or two plugins, let alone the entire Bootstrap repo in your `bower_components`. Keeping individual files up to date manually and including minified version can be a chore.
 
